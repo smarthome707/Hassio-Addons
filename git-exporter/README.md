@@ -16,6 +16,7 @@ Can be used to show your Home Assistant setup in public repositories.
 * Export ESPHome configurations
 * Export Supervisor Addons config
 * Export Node-RED flows
+* Export AdGuard Home filter lists and dns upstream server.
 * Check for plaintext secrets based on your `secrets.yaml` file and common patterns.
 * Check for plaintext ip and addresses in your config.
 
@@ -39,6 +40,7 @@ export:
   addons: true
   esphome: true
   node_red: true
+  adguard_home: true
 checks:
   enabled: true
   check_for_secrets: true
@@ -71,6 +73,8 @@ dry_run: false
 `export.esphome`: Enable / Disable the export for the esphome config.
 
 `export.node_red`: Enable / Disable the export for the Node-RED flows. Secure your credentials with [node-red-contrib-credentials](https://flows.nodered.org/node/node-red-contrib-credentials).
+
+`export.adguard_home`: Enable / Disable the export of adguard filter lists and upstream servers.
 
 
 `checks.enabled`: Enable / Disable the checks in the exported files.

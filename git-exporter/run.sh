@@ -133,6 +133,15 @@ function export_node-red {
     chmod 644 -R ${local_repository}/node-red
 }
 
+function export_adguard-home {
+    bashio::log.info 'Get AdGuard Home filter lists'
+    set -x
+    curl -H "Content-Type: application/json" --insecure https://a0d7b954-adguard:8666/control/filtering/status 
+
+    sleep 50000
+    set +x
+}
+
 bashio::log.info 'Start git export'
 
 setup_git
@@ -153,6 +162,10 @@ fi
 
 if [ "$(bashio::config 'export.node_red')" == 'true' ]; then
     export_node-red
+fi
+
+if [ "$(bashio::config 'export.adguard_home')" == 'true' ]; then
+    export_adguard-home
 fi
 
 if [ "$(bashio::config 'check.enabled')" == 'true' ]; then

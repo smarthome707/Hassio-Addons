@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.4.0 - 2020-05-04
+
+* Add export of AdGuard Home filter list and dns upstream server
+* Added `curl` at version `7.67.0-r0`
+
+
 ## 1.3.2 - 2020-04-29
 
 * Updated git to `2.24.3-r0`
