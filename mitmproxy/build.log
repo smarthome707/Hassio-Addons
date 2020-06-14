@@ -1,0 +1,242 @@
+Sending build context to Docker daemon  18.43kB
+Step 1/12 : ARG BUILD_FROM
+Step 2/12 : FROM $BUILD_FROM AS BUILD
+ ---> 173fa21130a8
+Step 3/12 : ENV mitmproxy_VERSION='5.1.1'
+ ---> Using cache
+ ---> 243838b5a78a
+Step 4/12 : RUN apk add -Uu --no-cache --purge        	python3=3.8.3-r0          python3-dev=3.8.3-r0         py3-pip=20.1.1-r0         py3-wheel=0.34.2-r1         py3-six=1.15.0-r0         py3-parsing=2.4.7-r0         py3-certifi=2020.4.5.1-r0         py3-setuptools=47.0.0-r0         build-base=0.5-r2         libffi=3.3-r2         libffi-dev=3.3-r2         libstdc++=9.3.0-r2         openssl=1.1.1g-r0         openssl-dev=1.1.1g-r0
+ ---> Running in 8b5219118450
+fetch http://dl-cdn.alpinelinux.org/alpine/v3.12/main/x86_64/APKINDEX.tar.gz
+fetch http://dl-cdn.alpinelinux.org/alpine/v3.12/community/x86_64/APKINDEX.tar.gz
+(1/58) Upgrading ca-certificates-bundle (20191127-r2 -> 20191127-r3)
+(2/58) Installing binutils (2.34-r1)
+(3/58) Installing libmagic (5.38-r0)
+(4/58) Installing file (5.38-r0)
+(5/58) Installing gmp (6.2.0-r0)
+(6/58) Installing isl (0.18-r0)
+(7/58) Installing libgomp (9.3.0-r2)
+(8/58) Installing libatomic (9.3.0-r2)
+(9/58) Installing libgphobos (9.3.0-r2)
+(10/58) Installing mpfr4 (4.0.2-r4)
+(11/58) Installing mpc1 (1.1.0-r1)
+(12/58) Installing gcc (9.3.0-r2)
+(13/58) Installing musl-dev (1.1.24-r8)
+(14/58) Installing libc-dev (0.7.2-r3)
+(15/58) Installing g++ (9.3.0-r2)
+(16/58) Installing make (4.3-r0)
+(17/58) Installing fortify-headers (1.1-r0)
+(18/58) Installing patch (2.7.6-r6)
+(19/58) Installing build-base (0.5-r2)
+(20/58) Installing libffi (3.3-r2)
+(21/58) Installing linux-headers (5.4.5-r1)
+(22/58) Installing pkgconf (1.7.2-r0)
+(23/58) Installing libffi-dev (3.3-r2)
+(24/58) Installing openssl (1.1.1g-r0)
+(25/58) Installing openssl-dev (1.1.1g-r0)
+(26/58) Installing libbz2 (1.0.8-r1)
+(27/58) Installing expat (2.2.9-r1)
+(28/58) Installing gdbm (1.13-r1)
+(29/58) Installing sqlite-libs (3.32.1-r0)
+(30/58) Installing python3 (3.8.3-r0)
+(31/58) Installing py3-certifi (2020.4.5.1-r0)
+(32/58) Installing py3-parsing (2.4.7-r0)
+(33/58) Installing py3-appdirs (1.4.4-r1)
+(34/58) Installing py3-ordered-set (4.0.1-r0)
+(35/58) Installing py3-six (1.15.0-r0)
+(36/58) Installing py3-packaging (20.4-r0)
+(37/58) Installing py3-setuptools (47.0.0-r0)
+(38/58) Installing py3-chardet (3.0.4-r4)
+(39/58) Installing py3-idna (2.9-r0)
+(40/58) Installing py3-urllib3 (1.25.9-r0)
+(41/58) Installing py3-requests (2.23.0-r0)
+(42/58) Installing py3-msgpack (1.0.0-r0)
+(43/58) Installing py3-lockfile (0.12.2-r3)
+(44/58) Installing py3-cachecontrol (0.12.6-r0)
+(45/58) Installing py3-colorama (0.4.3-r0)
+(46/58) Installing py3-distlib (0.3.0-r0)
+(47/58) Installing py3-distro (1.5.0-r1)
+(48/58) Installing py3-webencodings (0.5.1-r3)
+(49/58) Installing py3-html5lib (1.0.1-r4)
+(50/58) Installing py3-pytoml (0.1.21-r0)
+(51/58) Installing py3-pep517 (0.8.2-r0)
+(52/58) Installing py3-progress (1.5-r0)
+(53/58) Installing py3-toml (0.10.1-r0)
+(54/58) Installing py3-retrying (1.3.3-r0)
+(55/58) Installing py3-contextlib2 (0.6.0-r0)
+(56/58) Installing py3-pip (20.1.1-r0)
+(57/58) Installing py3-wheel (0.34.2-r1)
+(58/58) Installing python3-dev (3.8.3-r0)
+Executing busybox-1.31.1-r16.trigger
+Executing ca-certificates-20191127-r3.trigger
+OK: 339 MiB in 98 packages
+Removing intermediate container 8b5219118450
+ ---> d6e7e7b46eaa
+Step 5/12 : RUN pip3 install --user --upgrade mitmproxy==5.1.1
+ ---> Running in 7828f2cc0691
+Collecting mitmproxy==5.1.1
+  Downloading mitmproxy-5.1.1-py3-none-any.whl (1.3 MB)
+Collecting protobuf<3.12,>=3.6.0
+  Downloading protobuf-3.11.3-py2.py3-none-any.whl (434 kB)
+Requirement already satisfied, skipping upgrade: certifi>=2019.9.11 in /usr/lib/python3.8/site-packages (from mitmproxy==5.1.1) (2020.4.5.1)
+Collecting sortedcontainers<2.2,>=2.1.0
+  Downloading sortedcontainers-2.1.0-py2.py3-none-any.whl (28 kB)
+Collecting passlib<1.8,>=1.6.5
+  Downloading passlib-1.7.2-py2.py3-none-any.whl (507 kB)
+Collecting Brotli<1.1,>=1.0
+  Downloading Brotli-1.0.7.zip (496 kB)
+Requirement already satisfied, skipping upgrade: pyparsing<2.5,>=2.4.2 in /usr/lib/python3.8/site-packages (from mitmproxy==5.1.1) (2.4.7)
+Collecting flask<1.2,>=1.1.1
+  Downloading Flask-1.1.2-py2.py3-none-any.whl (94 kB)
+Collecting pyOpenSSL<19.2,>=19.1.0
+  Downloading pyOpenSSL-19.1.0-py2.py3-none-any.whl (53 kB)
+Collecting tornado<7,>=4.3
+  Downloading tornado-6.0.4.tar.gz (496 kB)
+Collecting urwid<2.2,>=2.1.0
+  Downloading urwid-2.1.0.tar.gz (630 kB)
+Collecting ruamel.yaml<0.17,>=0.16
+  Downloading ruamel.yaml-0.16.10-py2.py3-none-any.whl (111 kB)
+Collecting cryptography<3.0,>=2.9
+  Downloading cryptography-2.9.2.tar.gz (517 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+    Preparing wheel metadata: started
+    Preparing wheel metadata: finished with status 'done'
+Collecting zstandard<0.14,>=0.11
+  Downloading zstandard-0.13.0.tar.gz (659 kB)
+Collecting publicsuffix2<3,>=2.20190812
+  Downloading publicsuffix2-2.20191221-py2.py3-none-any.whl (89 kB)
+Collecting blinker<1.5,>=1.4
+  Downloading blinker-1.4.tar.gz (111 kB)
+Collecting click<8,>=7.0
+  Downloading click-7.1.2-py2.py3-none-any.whl (82 kB)
+Collecting ldap3<2.8,>=2.6.1
+  Downloading ldap3-2.7-py2.py3-none-any.whl (420 kB)
+Collecting pyasn1<0.5,>=0.3.1
+  Downloading pyasn1-0.4.8-py2.py3-none-any.whl (77 kB)
+Collecting kaitaistruct<0.9,>=0.7
+  Downloading kaitaistruct-0.8.tar.gz (5.2 kB)
+Collecting hyperframe<6,>=5.1.0
+  Downloading hyperframe-5.2.0-py2.py3-none-any.whl (12 kB)
+Collecting wsproto<0.16,>=0.14
+  Downloading wsproto-0.15.0-py2.py3-none-any.whl (24 kB)
+Collecting h2<4,>=3.2.0
+  Downloading h2-3.2.0-py2.py3-none-any.whl (65 kB)
+Collecting pyperclip<1.9,>=1.6.0
+  Downloading pyperclip-1.8.0.tar.gz (16 kB)
+Requirement already satisfied, skipping upgrade: six>=1.9 in /usr/lib/python3.8/site-packages (from protobuf<3.12,>=3.6.0->mitmproxy==5.1.1) (1.15.0)
+Requirement already satisfied, skipping upgrade: setuptools in /usr/lib/python3.8/site-packages (from protobuf<3.12,>=3.6.0->mitmproxy==5.1.1) (47.0.0)
+Collecting Jinja2>=2.10.1
+  Downloading Jinja2-2.11.2-py2.py3-none-any.whl (125 kB)
+Collecting itsdangerous>=0.24
+  Downloading itsdangerous-1.1.0-py2.py3-none-any.whl (16 kB)
+Collecting Werkzeug>=0.15
+  Downloading Werkzeug-1.0.1-py2.py3-none-any.whl (298 kB)
+Collecting ruamel.yaml.clib>=0.1.2; platform_python_implementation == "CPython" and python_version < "3.9"
+  Downloading ruamel.yaml.clib-0.2.0.tar.gz (178 kB)
+Processing /root/.cache/pip/wheels/89/96/42/98fbfabb3fd5a7ea40a01dab70dcbdf5d78e4652b30dbf9f33/cffi-1.14.0-cp38-cp38-linux_x86_64.whl
+Collecting h11>=0.8.1
+  Downloading h11-0.9.0-py2.py3-none-any.whl (53 kB)
+Collecting hpack<4,>=3.0
+  Downloading hpack-3.0.0-py2.py3-none-any.whl (38 kB)
+Collecting MarkupSafe>=0.23
+  Downloading MarkupSafe-1.1.1.tar.gz (19 kB)
+Collecting pycparser
+  Using cached pycparser-2.20-py2.py3-none-any.whl (112 kB)
+Building wheels for collected packages: Brotli, tornado, urwid, cryptography, zstandard, blinker, kaitaistruct, pyperclip, ruamel.yaml.clib, MarkupSafe
+  Building wheel for Brotli (setup.py): started
+  Building wheel for Brotli (setup.py): finished with status 'done'
+  Created wheel for Brotli: filename=Brotli-1.0.7-cp38-cp38-linux_x86_64.whl size=2591897 sha256=d479a77d5ec81f6d80405de647c27e0dfa98e0c9d093fad3dd112ff7f4474d2c
+  Stored in directory: /root/.cache/pip/wheels/20/d1/36/4f244efa4f7b8fb23c2def2d97252f9787dca175b36209a188
+  Building wheel for tornado (setup.py): started
+  Building wheel for tornado (setup.py): finished with status 'done'
+  Created wheel for tornado: filename=tornado-6.0.4-cp38-cp38-linux_x86_64.whl size=427431 sha256=63995ee2885317e94f5e969432a47f75d73cc1296f78cbcc7420b9149e81376e
+  Stored in directory: /root/.cache/pip/wheels/88/79/e5/598ba17e85eccf2626eab62e4ee8452895636cd542650d450d
+  Building wheel for urwid (setup.py): started
+  Building wheel for urwid (setup.py): finished with status 'done'
+  Created wheel for urwid: filename=urwid-2.1.0-cp38-cp38-linux_x86_64.whl size=259454 sha256=4d62efcd1532237c6d839361b1658d9107bb73c600c8f154db250cd733ae0935
+  Stored in directory: /root/.cache/pip/wheels/be/49/b6/974ce86354a8047eff71ef04c67fa4a6bf84e0fc629fe3bbe4
+  Building wheel for cryptography (PEP 517): started
+  Building wheel for cryptography (PEP 517): finished with status 'done'
+  Created wheel for cryptography: filename=cryptography-2.9.2-cp38-cp38-linux_x86_64.whl size=1375374 sha256=9189e22fb3cb2d2f12abaa6da67958cee6f221dea7942ef493b37b8a7e3eda20
+  Stored in directory: /root/.cache/pip/wheels/25/18/2a/aa91b67eb90b1e96326f7043ec79868974fc94648b14b64c5c
+  Building wheel for zstandard (setup.py): started
+  Building wheel for zstandard (setup.py): finished with status 'done'
+  Created wheel for zstandard: filename=zstandard-0.13.0-cp38-cp38-linux_x86_64.whl size=2400371 sha256=b07d117110be4f2b09e2c3ae9df571d107de5a6596bbb3b0982e170548cf7cb0
+  Stored in directory: /root/.cache/pip/wheels/9e/e9/d1/6a3ecdcf443aec87175cd9f29397d41db6566d5a523db478df
+  Building wheel for blinker (setup.py): started
+  Building wheel for blinker (setup.py): finished with status 'done'
+  Created wheel for blinker: filename=blinker-1.4-py3-none-any.whl size=13452 sha256=37a1e9a47c17c2407d422e4f55f9d8ce6ec850e74c1214d37b5a0d1adfde5764
+  Stored in directory: /root/.cache/pip/wheels/b7/a5/68/fe632054a5eadd531c7a49d740c50eb6adfbeca822b4eab8d4
+  Building wheel for kaitaistruct (setup.py): started
+  Building wheel for kaitaistruct (setup.py): finished with status 'done'
+  Created wheel for kaitaistruct: filename=kaitaistruct-0.8-py2.py3-none-any.whl size=4922 sha256=846ad948ab27430a368f4cb691e5f6a2ecae2cb081710d0fad21d4a9d36943a7
+  Stored in directory: /root/.cache/pip/wheels/21/9e/07/4a48aca3de6d2402327907029503e072ad90737ec443cdbc41
+  Building wheel for pyperclip (setup.py): started
+  Building wheel for pyperclip (setup.py): finished with status 'done'
+  Created wheel for pyperclip: filename=pyperclip-1.8.0-py3-none-any.whl size=8691 sha256=7b7012739155f11ab4fa3d5919b77005bf9dcb15bdf09e4f5a29124ea70459d2
+  Stored in directory: /root/.cache/pip/wheels/03/79/58/ab51f0f590281b0f4f6046d9271eb98cc50565afb9200f155a
+  Building wheel for ruamel.yaml.clib (setup.py): started
+  Building wheel for ruamel.yaml.clib (setup.py): finished with status 'done'
+  Created wheel for ruamel.yaml.clib: filename=ruamel.yaml.clib-0.2.0-cp38-cp38-linux_x86_64.whl size=787365 sha256=765c34cd5ab08f027a81988bacd25be762e7d2e9bc88fe4fe45a19643e0fa6cc
+  Stored in directory: /root/.cache/pip/wheels/e4/3e/eb/975034325f52bc0d5897b5f8603974d6a79a964aaeb0ec0293
+  Building wheel for MarkupSafe (setup.py): started
+  Building wheel for MarkupSafe (setup.py): finished with status 'done'
+  Created wheel for MarkupSafe: filename=MarkupSafe-1.1.1-cp38-cp38-linux_x86_64.whl size=36133 sha256=c46782b4308e83bbd894a08a7f6854a30db4485c724574f050fdbfd5500bea56
+  Stored in directory: /root/.cache/pip/wheels/0c/61/d6/4db4f4c28254856e82305fdb1f752ed7f8482e54c384d8cb0e
+Successfully built Brotli tornado urwid cryptography zstandard blinker kaitaistruct pyperclip ruamel.yaml.clib MarkupSafe
+Installing collected packages: protobuf, sortedcontainers, passlib, Brotli, MarkupSafe, Jinja2, itsdangerous, Werkzeug, click, flask, pycparser, cffi, cryptography, pyOpenSSL, tornado, urwid, ruamel.yaml.clib, ruamel.yaml, zstandard, publicsuffix2, blinker, pyasn1, ldap3, kaitaistruct, hyperframe, h11, wsproto, hpack, h2, pyperclip, mitmproxy
+[91m  WARNING: The script flask is installed in '/root/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+[0m[91m  WARNING: The scripts mitmdump, mitmproxy, mitmweb, pathoc and pathod are installed in '/root/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+[0mSuccessfully installed Brotli-1.0.7 Jinja2-2.11.2 MarkupSafe-1.1.1 Werkzeug-1.0.1 blinker-1.4 cffi-1.14.0 click-7.1.2 cryptography-2.9.2 flask-1.1.2 h11-0.9.0 h2-3.2.0 hpack-3.0.0 hyperframe-5.2.0 itsdangerous-1.1.0 kaitaistruct-0.8 ldap3-2.7 mitmproxy-5.1.1 passlib-1.7.2 protobuf-3.11.3 publicsuffix2-2.20191221 pyOpenSSL-19.1.0 pyasn1-0.4.8 pycparser-2.20 pyperclip-1.8.0 ruamel.yaml-0.16.10 ruamel.yaml.clib-0.2.0 sortedcontainers-2.1.0 tornado-6.0.4 urwid-2.1.0 wsproto-0.15.0 zstandard-0.13.0
+Removing intermediate container 7828f2cc0691
+ ---> e6c6cfe46dd5
+Step 6/12 : FROM $BUILD_FROM AS RUNNING
+ ---> 173fa21130a8
+Step 7/12 : RUN apk add -Uu --no-cache --purge        	python3=3.8.3-r0        	python3-dev=3.8.3-r0 		py3-six=1.15.0-r0         py3-parsing=2.4.7-r0         py3-certifi=2020.4.5.1-r0         py3-setuptools=47.0.0-r0     && rm -rf /var/cache/apk/* /tmp/*
+ ---> Running in 2825ced1276b
+fetch http://dl-cdn.alpinelinux.org/alpine/v3.12/main/x86_64/APKINDEX.tar.gz
+fetch http://dl-cdn.alpinelinux.org/alpine/v3.12/community/x86_64/APKINDEX.tar.gz
+(1/16) Upgrading ca-certificates-bundle (20191127-r2 -> 20191127-r3)
+(2/16) Installing libbz2 (1.0.8-r1)
+(3/16) Installing expat (2.2.9-r1)
+(4/16) Installing libffi (3.3-r2)
+(5/16) Installing gdbm (1.13-r1)
+(6/16) Installing sqlite-libs (3.32.1-r0)
+(7/16) Installing python3 (3.8.3-r0)
+(8/16) Installing py3-certifi (2020.4.5.1-r0)
+(9/16) Installing py3-parsing (2.4.7-r0)
+(10/16) Installing py3-ordered-set (4.0.1-r0)
+(11/16) Installing py3-appdirs (1.4.4-r1)
+(12/16) Installing py3-six (1.15.0-r0)
+(13/16) Installing py3-packaging (20.4-r0)
+(14/16) Installing py3-setuptools (47.0.0-r0)
+(15/16) Installing pkgconf (1.7.2-r0)
+(16/16) Installing python3-dev (3.8.3-r0)
+Executing busybox-1.31.1-r16.trigger
+Executing ca-certificates-20191127-r3.trigger
+OK: 121 MiB in 56 packages
+Removing intermediate container 2825ced1276b
+ ---> 8b78fbafe616
+Step 8/12 : COPY --from=BUILD /root/.local /root/.local
+ ---> c57da939a461
+Step 9/12 : ENV PATH /root/.local/bin:$PATH
+ ---> Running in c9d970fb79ee
+Removing intermediate container c9d970fb79ee
+ ---> 24948a2ee5cf
+Step 10/12 : COPY run.sh /
+ ---> ee05361f2768
+Step 11/12 : RUN chmod a+x /run.sh
+ ---> Running in 07c0ac5784b7
+Removing intermediate container 07c0ac5784b7
+ ---> 7036be908ecb
+Step 12/12 : CMD [ "/run.sh" ]
+ ---> Running in 3d6a4df80b11
+Removing intermediate container 3d6a4df80b11
+ ---> ae1571a25cf8
+Successfully built ae1571a25cf8
+Successfully tagged mitm:latest
