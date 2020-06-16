@@ -1,5 +1,5 @@
 #!/usr/bin/env bashio
-set -e
+set -e 
 OPTIONS=$(jq -r '.options | map("\(.name)=\(.value|tostring)") | [.[] | "--set "  + .] |  join(" ")' /data/options.json)
 
 bashio::log.info 'Start mitmproxy'
